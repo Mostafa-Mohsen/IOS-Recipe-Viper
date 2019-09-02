@@ -30,4 +30,10 @@ class RecipesRouter:PresenterToRouterProtocol{
         return UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
+    func pushToMovieScreen(navigationConroller:UINavigationController,recipe: RecipeModel) {
+        let detailModule = DetailsRouter.createModule()
+        detailModule.detailRecipe = recipe
+        navigationConroller.pushViewController(detailModule, animated: true)
+    }
+    
 }

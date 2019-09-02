@@ -23,6 +23,15 @@
 		BBBC5DD0231CFF6D0023B285 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DCF231CFF6D0023B285 /* RecipesViewController.swift */; };
 		BBBC5DD2231D032E0023B285 /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DD1231D032E0023B285 /* RecipesTableViewCell.swift */; };
 		BBBC5DD7231D162A0023B285 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DD6231D162A0023B285 /* NetworkManager.swift */; };
+		BBBC5DDE231D279E0023B285 /* DetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DDD231D279E0023B285 /* DetailsProtocol.swift */; };
+		BBBC5DE0231D27C70023B285 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DDF231D27C70023B285 /* DetailsInteractor.swift */; };
+		BBBC5DE2231D27DF0023B285 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DE1231D27DF0023B285 /* DetailsPresenter.swift */; };
+		BBBC5DE6231D281B0023B285 /* DetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DE5231D281B0023B285 /* DetailsTableViewController.swift */; };
+		BBBC5DEA231D28BA0023B285 /* DetailsImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DE9231D28BA0023B285 /* DetailsImageTableViewCell.swift */; };
+		BBBC5DEC231D28D70023B285 /* DetailsTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DEB231D28D70023B285 /* DetailsTitleTableViewCell.swift */; };
+		BBBC5DF0231D290A0023B285 /* DetailsIngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DEF231D290A0023B285 /* DetailsIngredientsTableViewCell.swift */; };
+		BBBC5DF2231D29170023B285 /* DetailsLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DF1231D29170023B285 /* DetailsLinkTableViewCell.swift */; };
+		BBBC5DF5231D309F0023B285 /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC5DF4231D309F0023B285 /* DetailsRouter.swift */; };
 		D9B40EFE1AAE787FE28DE440 /* Pods_RecipeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFAE4E4D71240AC96ADAC79 /* Pods_RecipeUITests.framework */; };
 		DED81F534DFBA39D64FCBEC6 /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6FFCEDD7F06E105B32AF17 /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +82,15 @@
 		BBBC5DCF231CFF6D0023B285 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		BBBC5DD1231D032E0023B285 /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
 		BBBC5DD6231D162A0023B285 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BBBC5DDD231D279E0023B285 /* DetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocol.swift; sourceTree = "<group>"; };
+		BBBC5DDF231D27C70023B285 /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
+		BBBC5DE1231D27DF0023B285 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		BBBC5DE5231D281B0023B285 /* DetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewController.swift; sourceTree = "<group>"; };
+		BBBC5DE9231D28BA0023B285 /* DetailsImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsImageTableViewCell.swift; sourceTree = "<group>"; };
+		BBBC5DEB231D28D70023B285 /* DetailsTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTitleTableViewCell.swift; sourceTree = "<group>"; };
+		BBBC5DEF231D290A0023B285 /* DetailsIngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsIngredientsTableViewCell.swift; sourceTree = "<group>"; };
+		BBBC5DF1231D29170023B285 /* DetailsLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLinkTableViewCell.swift; sourceTree = "<group>"; };
+		BBBC5DF4231D309F0023B285 /* DetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRouter.swift; sourceTree = "<group>"; };
 		D4D723DA42AFBAAFF9EA282D /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		E95C478E7EB906FE8E2F9D63 /* Pods-RecipeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeUITests.debug.xcconfig"; path = "Target Support Files/Pods-RecipeUITests/Pods-RecipeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				BBBC5DB9231CFBC90023B285 /* recipes-module */,
+				BBBC5DD8231D23810023B285 /* details-module */,
 			);
 			path = "app-modules";
 			sourceTree = "<group>";
@@ -292,6 +311,62 @@
 			children = (
 			);
 			path = Local;
+			sourceTree = "<group>";
+		};
+		BBBC5DD8231D23810023B285 /* details-module */ = {
+			isa = PBXGroup;
+			children = (
+				BBBC5DDC231D23B00023B285 /* protocols */,
+				BBBC5DDB231D23A60023B285 /* interactor */,
+				BBBC5DF3231D30790023B285 /* router */,
+				BBBC5DDA231D239D0023B285 /* presenter */,
+				BBBC5DD9231D23930023B285 /* view */,
+			);
+			path = "details-module";
+			sourceTree = "<group>";
+		};
+		BBBC5DD9231D23930023B285 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BBBC5DE5231D281B0023B285 /* DetailsTableViewController.swift */,
+				BBBC5DE9231D28BA0023B285 /* DetailsImageTableViewCell.swift */,
+				BBBC5DEB231D28D70023B285 /* DetailsTitleTableViewCell.swift */,
+				BBBC5DEF231D290A0023B285 /* DetailsIngredientsTableViewCell.swift */,
+				BBBC5DF1231D29170023B285 /* DetailsLinkTableViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		BBBC5DDA231D239D0023B285 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BBBC5DE1231D27DF0023B285 /* DetailsPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		BBBC5DDB231D23A60023B285 /* interactor */ = {
+			isa = PBXGroup;
+			children = (
+				BBBC5DDF231D27C70023B285 /* DetailsInteractor.swift */,
+			);
+			path = interactor;
+			sourceTree = "<group>";
+		};
+		BBBC5DDC231D23B00023B285 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BBBC5DDD231D279E0023B285 /* DetailsProtocol.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		BBBC5DF3231D30790023B285 /* router */ = {
+			isa = PBXGroup;
+			children = (
+				BBBC5DF4231D309F0023B285 /* DetailsRouter.swift */,
+			);
+			path = router;
 			sourceTree = "<group>";
 		};
 		C218C943CC03F03EF5D4CFE4 /* Pods */ = {
@@ -539,14 +614,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBBC5DD0231CFF6D0023B285 /* RecipesViewController.swift in Sources */,
+				BBBC5DF0231D290A0023B285 /* DetailsIngredientsTableViewCell.swift in Sources */,
 				BBBC5DC6231CFD210023B285 /* RecipesProtocol.swift in Sources */,
 				BBBC5DD7231D162A0023B285 /* NetworkManager.swift in Sources */,
 				BBBC5DD2231D032E0023B285 /* RecipesTableViewCell.swift in Sources */,
 				BBBC5DC8231CFD920023B285 /* RecipeModel.swift in Sources */,
+				BBBC5DEC231D28D70023B285 /* DetailsTitleTableViewCell.swift in Sources */,
 				BBBC5DC3231CFC7D0023B285 /* AppConstants.swift in Sources */,
 				BBBC5DCE231CFF140023B285 /* RecipesPresenter.swift in Sources */,
+				BBBC5DE0231D27C70023B285 /* DetailsInteractor.swift in Sources */,
 				BBBC5DCA231CFEBD0023B285 /* RecipesInteractor.swift in Sources */,
+				BBBC5DE2231D27DF0023B285 /* DetailsPresenter.swift in Sources */,
 				BBBC5DCC231CFEFA0023B285 /* RecipesRouter.swift in Sources */,
+				BBBC5DEA231D28BA0023B285 /* DetailsImageTableViewCell.swift in Sources */,
+				BBBC5DF5231D309F0023B285 /* DetailsRouter.swift in Sources */,
+				BBBC5DF2231D29170023B285 /* DetailsLinkTableViewCell.swift in Sources */,
+				BBBC5DDE231D279E0023B285 /* DetailsProtocol.swift in Sources */,
+				BBBC5DE6231D281B0023B285 /* DetailsTableViewController.swift in Sources */,
 				BBBC5D88231CFB480023B285 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

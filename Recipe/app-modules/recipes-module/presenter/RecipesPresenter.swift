@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RecipesPresenter:ViewToPresenterProtocol{
     
@@ -16,6 +17,9 @@ class RecipesPresenter:ViewToPresenterProtocol{
     
     func startFetchingRecipes() {
         interactor?.fetchRecipes()
+    }
+    func showDetailsController(navigationController:UINavigationController,recipe: RecipeModel) {
+        router?.pushToMovieScreen(navigationConroller: navigationController, recipe: recipe)
     }
 }
 
@@ -27,6 +31,4 @@ extension RecipesPresenter: InteractorToPresenterProtocol{
     func recipesFetchfailed(message:String) {
         view?.showError(message: message)
     }
-    
-    
 }

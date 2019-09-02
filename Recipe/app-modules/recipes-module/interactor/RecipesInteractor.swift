@@ -29,5 +29,4 @@ extension RecipesInteractor: NetworkObserver{
         presenter?.recipesFetchfailed(message: message)
     }
     
-    
 }

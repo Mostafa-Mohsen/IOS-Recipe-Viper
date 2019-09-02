@@ -15,7 +15,7 @@ protocol ViewToPresenterProtocol: class{
     var router: PresenterToRouterProtocol? {get set}
     
     func startFetchingRecipes()
-    
+    func showDetailsController(navigationController:UINavigationController,recipe: RecipeModel)
 }
 
 protocol PresenterToViewProtocol: class{
@@ -25,6 +25,7 @@ protocol PresenterToViewProtocol: class{
 
 protocol PresenterToRouterProtocol: class {
     static func createModule() -> RecipesViewController
+    func pushToMovieScreen(navigationConroller:UINavigationController,recipe: RecipeModel)
 }
 
 protocol PresenterToInteractorProtocol: class {

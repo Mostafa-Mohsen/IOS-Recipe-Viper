@@ -9,26 +9,28 @@
 import Foundation
 import ObjectMapper
 
+private let URI = "recipe.uri"
 private let LABEL = "recipe.label"
 private let IMAGE = "recipe.image"
 private let SOURCE = "recipe.source"
 private let HEALTHLABELS = "recipe.healthLabels"
-private let RECIPE = "recipe"
-private let INGREDIENTLINES = "ingredientLines"
+private let INGREDIENTLINES = "recipe.ingredientLines"
 
 class RecipeModel: Mappable{
     
+    internal var uri:String?
     internal var label:String?
     internal var image:String?
     internal var source:String?
     internal var healthLabels:Array<String>?
-    internal var ingredientLines:String?
+    internal var ingredientLines:Array<String>?
     
     required init?(map:Map) {
         mapping(map: map)
     }
     
     func mapping(map:Map){
+        uri <- map[URI]
         label <- map[LABEL]
         image <- map[IMAGE]
         source <- map[SOURCE]
