@@ -25,7 +25,7 @@ class RecipesInteractor: PresenterToInteractorProtocol{
     }
     
     func loadMorerRecipes() {
-        if more {
+        if more && page < 6{
             NetworkManager.connectGetToUrl(url: "https://api.edamam.com/search?q=\(searchRecipe!)&app_id=9b3da956&app_key=5e85e075822a1368b9efafa387a149eb&from=\(page*20 - 20)&to=\(page*20)", networkObserver: self)
         }
     }
