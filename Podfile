@@ -9,6 +9,8 @@ target 'Recipe' do
 pod 'Alamofire', '~> 4.0'
 pod 'AlamofireObjectMapper', '~> 5.2'
 pod 'SDWebImage', '~> 5.0'
+pod 'RealmSwift'
+pod 'NVActivityIndicatorView'
 
   target 'RecipeTests' do
     inherit! :search_paths

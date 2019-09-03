@@ -12,8 +12,8 @@ import Alamofire
 class NetworkManager{
     static var networkObserverDelegate: NetworkObserver?
     
-    static func connectGetToUrl(url:String,serviceProtocol:NetworkObserver){
-        networkObserverDelegate = serviceProtocol
+    static func connectGetToUrl(url:String,networkObserver:NetworkObserver){
+        networkObserverDelegate = networkObserver
         
         Alamofire.request(url).responseJSON { response in
             

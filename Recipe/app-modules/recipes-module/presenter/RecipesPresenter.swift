@@ -15,9 +15,14 @@ class RecipesPresenter:ViewToPresenterProtocol{
     var interactor: PresenterToInteractorProtocol?
     var router: PresenterToRouterProtocol?
     
-    func startFetchingRecipes() {
-        interactor?.fetchRecipes()
+    func fetchRecipes(searchText:String) {
+        interactor?.fetchRecipes(searchText:searchText)
     }
+    
+    func loadMorerRecipes() {
+        interactor?.loadMorerRecipes()
+    }
+    
     func showDetailsController(navigationController:UINavigationController,recipe: RecipeModel) {
         router?.pushToMovieScreen(navigationConroller: navigationController, recipe: recipe)
     }
@@ -29,6 +34,15 @@ extension RecipesPresenter: InteractorToPresenterProtocol{
     }
     
     func recipesFetchfailed(message:String) {
+        view?.hideLoading()
         view?.showError(message: message)
+    }
+    
+    func showLoading(){
+        view?.showLoading()
+    }
+    
+    func hideLoading(){
+        view?.hideLoading()
     }
 }

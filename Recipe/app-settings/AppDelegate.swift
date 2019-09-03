@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController()
         navigationController.viewControllers = [recipe]
         navigationController.navigationBar.barStyle = .black
+        navigationController.navigationBar.isTranslucent = false
         
         /* Setting up the root view-controller as ui-navigation-controller */
         window = UIWindow(frame: UIScreen.main.bounds)

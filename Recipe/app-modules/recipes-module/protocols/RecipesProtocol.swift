@@ -14,13 +14,16 @@ protocol ViewToPresenterProtocol: class{
     var interactor: PresenterToInteractorProtocol? {get set}
     var router: PresenterToRouterProtocol? {get set}
     
-    func startFetchingRecipes()
+    func fetchRecipes(searchText:String)
+    func loadMorerRecipes()
     func showDetailsController(navigationController:UINavigationController,recipe: RecipeModel)
 }
 
 protocol PresenterToViewProtocol: class{
     func showRecipes(recipesArray:Array<RecipeModel>)
     func showError(message:String)
+    func showLoading()
+    func hideLoading()
 }
 
 protocol PresenterToRouterProtocol: class {
@@ -30,16 +33,23 @@ protocol PresenterToRouterProtocol: class {
 
 protocol PresenterToInteractorProtocol: class {
     var presenter: InteractorToPresenterProtocol? {get set}
-    func fetchRecipes()
+    func fetchRecipes(searchText:String)
+    func loadMorerRecipes()
 }
 
 protocol InteractorToPresenterProtocol: class {
     func recipesFetchsuccess(recipesModelArray:Array<RecipeModel>)
     func recipesFetchfailed(message:String)
+    func showLoading()
+    func hideLoading()
 }
 
 protocol NetworkObserver: class{
     func recipesFetchsuccess(data:AnyObject)
     func recipesFetchfailed(message:String)
+}
+
+protocol recipesSearchDelegate: class{
+    func searchfor(searchText: String)
 }
 
