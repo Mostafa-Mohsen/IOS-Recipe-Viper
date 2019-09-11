@@ -35,3 +35,7 @@ protocol DetailsInteractorToPresenterProtocol: class {
     
 }
 
+protocol Refreshable {
+    func populate(viewModel: Any)
+}
+

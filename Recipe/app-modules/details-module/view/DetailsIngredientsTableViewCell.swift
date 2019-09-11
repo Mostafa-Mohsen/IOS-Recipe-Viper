@@ -23,3 +23,10 @@ class DetailsIngredientsTableViewCell: UITableViewCell {
     }
 
 }
+
+extension DetailsIngredientsTableViewCell: Refreshable {
+    func populate(viewModel: Any) {
+        guard let ingredientViewModel = viewModel as? DetailsIngredientsViewModel else {return}
+        detailsIngredients.text = ingredientViewModel.ingredient
+    }
+}

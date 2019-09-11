@@ -7,112 +7,70 @@
 //
 
 import UIKit
-import SDWebImage
 import SafariServices
 
 class DetailsTableViewController: UITableViewController {
 
-    var detailRecipe: RecipeModel?
+    var viewModels = [Identity]()
     var presenter: DetailsViewToPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ 
+    }
     
+    func fillDetailsRecipeViewModel(detailRecipe:RecipeModel?){
+        if let unwrappedDetailsrecipe = detailRecipe{
+            if let image = unwrappedDetailsrecipe.image {
+                viewModels.append(DetailsImageViewModel(imageUri: image))
+            }
+            if let label = unwrappedDetailsrecipe.label {
+                viewModels.append(DetailsTitleViewModel(title: label))
+            }
+            viewModels.append(DetailsIngredientsTitleViewModel())
+            if let ingredients = unwrappedDetailsrecipe.ingredientLines {
+                viewModels = viewModels + ingredients.map{return DetailsIngredientsViewModel(ingredient: $0)}
+            }
+            if let uri = unwrappedDetailsrecipe.uri {
+                viewModels.append(DetailsLinkViewModel(link: uri))
+            }
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if let recipe = detailRecipe {
-            return (4 + recipe.ingredientLines!.count);
-        }else{
-            return 0;
-        }
+        return viewModels.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! DetailsImageTableViewCell
-            cell.detailsImage.sd_setImage(with: URL(string: detailRecipe!.image!), placeholderImage: UIImage(named: "placeHolder"))
+        if indexPath.row < 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: viewModels[indexPath.row].identifier, for: indexPath)
+            (cell as? Refreshable)?.populate(viewModel: viewModels[indexPath.row])
             return cell
-        }else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as! DetailsTitleTableViewCell
-            cell.detailsTitle.text = detailRecipe!.label
+        }else if indexPath.row < viewModels.count - 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: viewModels[indexPath.row].identifier, for: indexPath)
+            (cell as? Refreshable)?.populate(viewModel: viewModels[indexPath.row])
             return cell
-        }else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath)
-            
-            return cell
-        }else if indexPath.row < detailRecipe!.ingredientLines!.count + 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell4", for: indexPath) as! DetailsIngredientsTableViewCell
-            cell.detailsIngredients.text = detailRecipe!.ingredientLines![indexPath.row - 3]
-            return cell
-        }else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell5", for: indexPath) as! DetailsLinkTableViewCell
-            cell.detailsLink.text = detailRecipe!.uri
-            cell.detailsLink.isUserInteractionEnabled = true
-            cell.detailsLink.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openLink)))
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: viewModels[indexPath.row].identifier, for: indexPath)
+            (cell as? Refreshable)?.populate(viewModel: viewModels[indexPath.row])
+            cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openLink)))
             return cell
         }
-
         
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @objc func openLink(){
-        presenter?.openLink(navigationConroller: navigationController!, uri: detailRecipe!.uri!)
+        if let uriViewModel = viewModels.last as? DetailsLinkViewModel {
+            presenter?.openLink(navigationConroller: navigationController!, uri: uriViewModel.link)
+        }
     }
 }
 

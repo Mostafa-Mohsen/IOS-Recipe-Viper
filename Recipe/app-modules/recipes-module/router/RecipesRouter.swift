@@ -32,7 +32,7 @@ class RecipesRouter:PresenterToRouterProtocol{
     
     func pushToMovieScreen(navigationConroller:UINavigationController,recipe: RecipeModel) {
         let detailModule = DetailsRouter.createModule()
-        detailModule.detailRecipe = recipe
+        detailModule.fillDetailsRecipeViewModel(detailRecipe: recipe)
         navigationConroller.pushViewController(detailModule, animated: true)
     }
     

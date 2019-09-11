@@ -8,7 +8,7 @@
 
 import Foundation
 class SearchInteractor: SearchPresenterToInteractorProtocol {
-    var presenter: SearchInteractorToPresenterProtocol?
+    weak var presenter: SearchInteractorToPresenterProtocol?
     var historyList: [SearchModel]?
     
     func searchBarSearchButtonClicked(searchText: String?) {
@@ -27,8 +27,10 @@ class SearchInteractor: SearchPresenterToInteractorProtocol {
         if search == "" {
             presenter?.handleSuccessWithRealm(searchHistory: historyList!)
         }else{
-            let filteredList = historyList!.filter{$0.search.contains("\(search)")}
-            presenter?.handleSuccessWithRealm(searchHistory: filteredList)
+            if let unwrappedHistoryList = historyList {
+                let filteredList = unwrappedHistoryList.filter{$0.search.contains("\(search)")}
+                presenter?.handleSuccessWithRealm(searchHistory: filteredList)
+            }
         }
     }
 }

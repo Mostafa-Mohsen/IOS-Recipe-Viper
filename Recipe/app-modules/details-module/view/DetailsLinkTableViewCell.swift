@@ -23,3 +23,10 @@ class DetailsLinkTableViewCell: UITableViewCell {
     }
 
 }
+
+extension DetailsLinkTableViewCell: Refreshable {
+    func populate(viewModel: Any) {
+        guard let linkViewModel = viewModel as? DetailsLinkViewModel else {return}
+        detailsLink.text = linkViewModel.link
+    }
+}

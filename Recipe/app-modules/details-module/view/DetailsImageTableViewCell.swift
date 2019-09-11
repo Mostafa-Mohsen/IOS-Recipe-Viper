@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailsImageTableViewCell: UITableViewCell {
 
@@ -22,4 +23,11 @@ class DetailsImageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension DetailsImageTableViewCell: Refreshable {
+    func populate(viewModel: Any) {
+        guard let imageViewModel = viewModel as? DetailsImageViewModel else {return}
+        detailsImage.sd_setImage(with: URL(string: imageViewModel.imageUri), placeholderImage: UIImage(named: "placeHolder"))
+    }
 }

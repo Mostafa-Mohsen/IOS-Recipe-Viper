@@ -23,3 +23,10 @@ class DetailsTitleTableViewCell: UITableViewCell {
     }
 
 }
+
+extension DetailsTitleTableViewCell: Refreshable {
+    func populate(viewModel: Any) {
+        guard let titleViewModel = viewModel as? DetailsTitleViewModel else {return}
+        detailsTitle.text = titleViewModel.title
+    }
+}

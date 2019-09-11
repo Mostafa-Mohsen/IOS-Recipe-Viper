@@ -9,12 +9,14 @@
 import Foundation
 import ObjectMapper
 
-private let URI = "recipe.uri"
-private let LABEL = "recipe.label"
-private let IMAGE = "recipe.image"
-private let SOURCE = "recipe.source"
-private let HEALTHLABELS = "recipe.healthLabels"
-private let INGREDIENTLINES = "recipe.ingredientLines"
+struct RecipeViewModel{
+    static let URI = "recipe.uri"
+    static let LABEL = "recipe.label"
+    static let IMAGE = "recipe.image"
+    static let SOURCE = "recipe.source"
+    static let HEALTHLABELS = "recipe.healthLabels"
+    static let INGREDIENTLINES = "recipe.ingredientLines"
+}
 
 class RecipeModel: Mappable{
     
@@ -30,11 +32,11 @@ class RecipeModel: Mappable{
     }
     
     func mapping(map:Map){
-        uri <- map[URI]
-        label <- map[LABEL]
-        image <- map[IMAGE]
-        source <- map[SOURCE]
-        healthLabels <- map[HEALTHLABELS]
-        ingredientLines <- map[INGREDIENTLINES]
+        uri <- map[RecipeViewModel.URI]
+        label <- map[RecipeViewModel.LABEL]
+        image <- map[RecipeViewModel.IMAGE]
+        source <- map[RecipeViewModel.SOURCE]
+        healthLabels <- map[RecipeViewModel.HEALTHLABELS]
+        ingredientLines <- map[RecipeViewModel.INGREDIENTLINES]
     }
 }

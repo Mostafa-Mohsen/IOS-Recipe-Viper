@@ -11,7 +11,9 @@ pod 'AlamofireObjectMapper', '~> 5.2'
 pod 'SDWebImage', '~> 5.0'
 pod 'RealmSwift'
 pod 'NVActivityIndicatorView'
-
+pod 'Firebase/Analytics'
+pod 'Fabric', '~> 1.10.2'
+pod 'Crashlytics', '~> 3.13.4'
   target 'RecipeTests' do
     inherit! :search_paths
     # Pods for testing
